@@ -34,3 +34,5 @@ class Campo_nota(ft.Row):
     @property
     def value(self):
          return self.caixa_texto.value
+
+    

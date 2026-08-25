@@ -35,6 +35,14 @@ def main (pagina:ft.Page):
         resultado = soma / contador_notas
         campo_resutado.value = resultado
 
+    def excluir_notas():
+        copia_lista = lista_campo_notas.copy()
+        for campo in copia_lista:
+            if campo.caixa_selecao.value == True:
+                lista_campo_notas.remove(campo)
+
+
+
 
     botao_ico = ft.FloatingActionButton(icon=ft.Icon(icon=ft.Icons.ADD,
                                                      color= "#508023",),
@@ -42,6 +50,13 @@ def main (pagina:ft.Page):
                                         hover_color="#94D25B",
                                         on_click=adicionar_campo_nota)
 
+    
+    botao_excluir = ft.FloatingActionButton(icon=ft.Icon(icon=ft.Icons.DELETE_FOREVER_ROUNDED,
+                                                         color= "#508023",),
+                                            bgcolor="#ACDC7F",
+                                            hover_color="#94D25B",
+                                            on_click=excluir_notas)
+    
 
     botao_resultado = ft.FloatingActionButton(content=ft.Text("Calcular média",
                                            color="#508023"),
@@ -78,6 +93,9 @@ def main (pagina:ft.Page):
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 spacing=20)
 
+    linha_botao = ft.Row(controls=[botao_ico,botao_excluir],
+                         alignment="center")
+
     
 
 
@@ -90,7 +108,7 @@ def main (pagina:ft.Page):
     
 
     pagina.controls = [titulo,
-                       botao_ico,
+                       linha_botao,
                        coluna_notas,
                        container_resultado]
 
