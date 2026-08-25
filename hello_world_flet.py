@@ -36,7 +36,7 @@ def main(pagina:ft.Page):
                      color="#C5DCF1",
                      on_click=mostar_imagem)
     #CRIANDO UMA IMAGEM
-    imagem =ft.Image(src="img/tulipa.jpg",
+    imagem =ft.Image(src="img/flor/tulipa.jpg",
                     width=150,
                     height=150,
                     border_radius =20,

@@ -1,4 +1,6 @@
 import flet as ft
+from component.classe_campo_nota import Campo_nota
+
 
 def main (pagina:ft.Page):
     pagina.title = "Calculo de Média"
@@ -19,12 +21,7 @@ def main (pagina:ft.Page):
 
 
     def adicionar_campo_nota():
-        lista_campo_notas.append(ft.TextField(label=ft.Text("Nota",
-                                              color= "#508023"),
-                                              bgcolor="#DCF0C9",
-                                              border_color="#C3E6A3",
-                                              border_width= 2,
-                                              border_radius=20))
+        lista_campo_notas.append(Campo_nota())
         
 
     def calcular_media ():
@@ -65,7 +62,9 @@ def main (pagina:ft.Page):
                                   border_color="#C3E6A3",
                                   border_radius= 10,
                                   border_width= 2,
-                                  bgcolor= "#DCF0C9",)
+                                  bgcolor= "#DCF0C9",
+                                  width=200)
+
     
 
     coluna_notas = ft.Column(controls=lista_campo_notas,
@@ -79,11 +78,21 @@ def main (pagina:ft.Page):
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 spacing=20)
 
+    
+
+
+    container_resultado = ft.Container(content=linha_bc,
+                                       bgcolor="#F2FAEB",
+                                       padding=5,
+                                       border=ft.Border.all(2,color="#DCF0C9"),
+                                       width=400,
+                                       border_radius=20,)
+    
 
     pagina.controls = [titulo,
                        botao_ico,
                        coluna_notas,
-                       linha_bc]
+                       container_resultado]
 
     
 

@@ -51,7 +51,7 @@ def main(pagina:ft.Page):
                         "img/memes/hehehe.png",
                         "img/memes/woody.jpg",
                         "img/memes/zoio.jpg",
-                        "img/cachorro.jpg"]
+                        "img/memes/cachorro.jpg"]
         
         sorteio = random.choice(lista_mensagens)
         sorteio_imagem = random.choice(lista_imagem)
