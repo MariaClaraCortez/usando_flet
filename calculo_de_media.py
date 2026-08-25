@@ -86,7 +86,7 @@ def main (pagina:ft.Page):
                                        padding=5,
                                        border=ft.Border.all(2,color="#DCF0C9"),
                                        width=400,
-                                       border_radius=20,)
+                                       border_radius=20)
     
 
     pagina.controls = [titulo,

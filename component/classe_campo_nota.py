@@ -30,3 +30,7 @@ class Campo_nota(ft.Row):
                 self.container_nota.bgcolor = "#C3E6A3"
             else:
                  self.container_nota.bgcolor = "#F2FAEB"
+
+    @property
+    def value(self):
+         return self.caixa_texto.value
