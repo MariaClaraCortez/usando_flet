@@ -18,7 +18,8 @@ def main(pagina:ft.Page):
     lista_campo_tarefa = []
 
     def adicionar_campo_tarefa():
-        lista_campo_tarefa.append(Campo_Tarefa())
+        lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=campo_tarefa.value))
+        
     
     campo_tarefa = ft.TextField(label=ft.Text("Tarefa",
                                               color="#60162d"),

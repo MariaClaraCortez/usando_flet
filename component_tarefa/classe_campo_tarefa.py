@@ -1,7 +1,7 @@
 import flet as ft
 
 class Campo_Tarefa(ft.Row):
-    def __init__(self):
+    def __init__(self,texto_tarefa):
         super().__init__()
 
         def alterar_cor ():
@@ -16,7 +16,8 @@ class Campo_Tarefa(ft.Row):
                                                    value=False)
         
 
-        self.caixa_tarefa = ft.TextField(label="",
+        self.caixa_tarefa = ft.TextField(value=texto_tarefa,
+                                         label="",
                                          border_color="#60162d",
                                          border_radius=20,
                                          border_width=1.5)
@@ -39,16 +40,17 @@ class Campo_Tarefa(ft.Row):
                                   scroll=ft.ScrollMode.AUTO) 
         
         coluna_escrita = ft.Column(controls=[self.texto_caixa,self.caixa_tarefa],
-                                   expand=True,
+                                   width=300,
                                    wrap=True,
-                                   scroll=ft.ScrollMode.AUTO,)
+                                   scroll=ft.ScrollMode.AUTO,
+                                   horizontal_alignment= "center")
         
 
         self.container_tarefa = ft.Container(content=ft.Row(controls=[self.caixa_certinho,coluna_escrita,coluna_botaos],),
                                        bgcolor="#a46e66",
                                        padding=10,
                                        border=ft.Border.all(2,color="#781f25"),
-                                       width=590,
+                                       width=390,
                                        border_radius=10,
                                        animate= ft.Animation(duration=400))
         
