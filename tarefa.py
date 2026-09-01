@@ -3,7 +3,7 @@ from component_tarefa.classe_campo_tarefa import Campo_Tarefa
 
 def main(pagina:ft.Page):
     pagina.title = "Tarefas"
-    pagina.bgcolor = "#e5c9bb"
+    pagina.bgcolor = "#EFF7F6"
     pagina.horizontal_alignment = "center"
     pagina.spacing = 30
 
@@ -13,23 +13,29 @@ def main(pagina:ft.Page):
                      size=50,
                      font_family="Georgia",
                      weight=ft.FontWeight.BOLD,
-                     color= "#781f25")
+                     color= "#256D85")
     
     lista_campo_tarefa = []
 
+    def excluir_tarefa(campo_tarefa):
+        lista_campo_tarefa.remove(campo_tarefa)
+
     def adicionar_campo_tarefa():
-        lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=campo_tarefa.value))
+        lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=campo_tarefa.value,
+                                               funcao_excluir=excluir_tarefa))
+        campo_tarefa.value = ""
         
     
     campo_tarefa = ft.TextField(label=ft.Text("Tarefa",
-                                              color="#60162d"),
-                                border_color="#60162d",
+                                              color="#6B7280"),
+                                              bgcolor="#FFFFFF",
+                                border_color = "#A9D1E8",
                                 border_radius=20,
                                 border_width=1.5)
     
     botao_incluir = ft.Button(content=ft.Text("Incluir",
-                                              color="#480a0b"),
-                                              bgcolor="#ab6c65",
+                                              color="#FFFFFF"),
+                                              bgcolor="#84C69B",
                                               on_click=adicionar_campo_tarefa)
 
     linha_incluir = ft.Row(controls=[campo_tarefa,botao_incluir],
