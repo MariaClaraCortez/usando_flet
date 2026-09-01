@@ -1,5 +1,5 @@
 import flet as ft
-from component.classe_campo_nota import Campo_nota
+from component_media.classe_campo_nota import Campo_nota
 
 
 def main (pagina:ft.Page):
