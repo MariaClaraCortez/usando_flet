@@ -24,6 +24,8 @@ def main(pagina:ft.Page):
 
     criar_bd()
 
+    
+
     def excluir_tarefa(campo_tarefa):
         lista_campo_tarefa.remove(campo_tarefa)
 
@@ -32,6 +34,11 @@ def main(pagina:ft.Page):
         lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=campo_tarefa.value,
                                                funcao_excluir=excluir_tarefa))
         campo_tarefa.value = ""
+
+    tarefas_bd = model_tarefa.recuperar_tarefas()
+    for tarefa in tarefas_bd:
+        lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=tarefa["tarefa"],
+                                               funcao_excluir=excluir_tarefa))
         
     
     campo_tarefa = ft.TextField(label=ft.Text("Tarefa",
