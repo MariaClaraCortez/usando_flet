@@ -8,7 +8,9 @@ def inserir_tarefa(texto_tarefa):
                        """,
                      [texto_tarefa,"Pendente"])
      conexao.commit()
+     cod_tarefa = cursor.lastrowid
      conexao.close()
+     return cod_tarefa
 
 
 def recuperar_tarefas():
@@ -20,3 +22,14 @@ def recuperar_tarefas():
      tarefas = cursor.fetchall()
      conexao.close()
      return tarefas
+
+
+def deletar_tarefa(cod_tarefas):
+     conexao, cursor = conectar_bd()
+     cursor.execute("""
+                     DELETE FROM tarefas
+                     WHERE cod_tarefas = ?;
+                    """,
+                    [cod_tarefas])
+     conexao.commit()
+     conexao.close()

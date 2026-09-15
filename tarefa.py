@@ -27,18 +27,21 @@ def main(pagina:ft.Page):
     
 
     def excluir_tarefa(campo_tarefa):
+        model_tarefa.deletar_tarefa(campo_tarefa.cod_tarefa)
         lista_campo_tarefa.remove(campo_tarefa)
 
     def adicionar_campo_tarefa():
-        model_tarefa.inserir_tarefa(campo_tarefa.value)
+        cod_tarefas = model_tarefa.inserir_tarefa(campo_tarefa.value)
         lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=campo_tarefa.value,
-                                               funcao_excluir=excluir_tarefa))
+                                               funcao_excluir=excluir_tarefa,
+                                               cod_tarefa=cod_tarefas))
         campo_tarefa.value = ""
 
     tarefas_bd = model_tarefa.recuperar_tarefas()
     for tarefa in tarefas_bd:
         lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=tarefa["tarefa"],
-                                               funcao_excluir=excluir_tarefa))
+                                               funcao_excluir=excluir_tarefa,
+                                               cod_tarefa=tarefa["cod_tarefas"]))
         
     
     campo_tarefa = ft.TextField(label=ft.Text("Tarefa",
