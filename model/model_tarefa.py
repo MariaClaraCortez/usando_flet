@@ -13,6 +13,7 @@ def inserir_tarefa(texto_tarefa):
      return cod_tarefa
 
 
+
 def recuperar_tarefas():
      conexao, cursor = conectar_bd()
      cursor.execute  ("""
@@ -24,6 +25,7 @@ def recuperar_tarefas():
      return tarefas
 
 
+
 def deletar_tarefa(cod_tarefas):
      conexao, cursor = conectar_bd()
      cursor.execute("""
@@ -33,3 +35,30 @@ def deletar_tarefa(cod_tarefas):
                     [cod_tarefas])
      conexao.commit()
      conexao.close()
+
+
+
+def atualizar_status(cod_tarefas, novo_status):
+     conexao, cursor = conectar_bd()
+     cursor.execute("""
+                     Update tarefas
+                    set status = ?
+                    where cod_tarefas = ?;
+                    """, 
+                    [novo_status, cod_tarefas])
+     conexao.commit()
+     conexao.close()
+
+def atualizar_tarefas(cod_tarefa, novo_texto):
+     conexao, cursor = conectar_bd()
+     cursor.execute("""
+                     Update tarefas
+                    set tarefa = ?
+                    where cod_tarefa = ?;
+                    """
+                    [novo_texto,cod_tarefa])
+     conexao.commit()
+     conexao.close()
+
+
+

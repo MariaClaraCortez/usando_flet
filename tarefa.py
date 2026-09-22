@@ -39,9 +39,20 @@ def main(pagina:ft.Page):
 
     tarefas_bd = model_tarefa.recuperar_tarefas()
     for tarefa in tarefas_bd:
-        lista_campo_tarefa.append(Campo_Tarefa(texto_tarefa=tarefa["tarefa"],
-                                               funcao_excluir=excluir_tarefa,
-                                               cod_tarefa=tarefa["cod_tarefas"]))
+        novo_campo = Campo_Tarefa(
+        texto_tarefa=tarefa["tarefa"],
+        funcao_excluir=excluir_tarefa,
+        cod_tarefa=tarefa["cod_tarefas"]
+        )
+
+        if tarefa["status"] == "CONCLUIDO":
+            novo_campo.caixa_certinho.value = True
+            
+        else:
+            novo_campo.caixa_certinho.value = False
+        novo_campo.alterar_cor()
+        lista_campo_tarefa.append(novo_campo)
+
         
     
     campo_tarefa = ft.TextField(label=ft.Text("Tarefa",
