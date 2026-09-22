@@ -54,8 +54,8 @@ def atualizar_tarefas(cod_tarefa, novo_texto):
      cursor.execute("""
                      Update tarefas
                     set tarefa = ?
-                    where cod_tarefa = ?;
-                    """
+                    where cod_tarefas = ?;
+                    """,
                     [novo_texto,cod_tarefa])
      conexao.commit()
      conexao.close()

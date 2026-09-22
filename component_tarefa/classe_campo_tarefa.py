@@ -81,7 +81,8 @@ class Campo_Tarefa(ft.Row):
                 model_tarefa.atualizar_status(self.cod_tarefa,"PENDENTE")
 
     def alterar_tarefa(self):
-         model_tarefa.atualizar_tarefas(self.cod_tarefa,self.texto_caixa.value)
+        model_tarefa.atualizar_tarefas(self.cod_tarefa, self.texto_caixa.value)
+        self.update()
         
 
 
